@@ -4,7 +4,7 @@
 ####Main Analysis: Effect of lionfish on prey species at site level####
 
 ##Load data file psData6.10
-
+psData6.10<-read.csv('psData6.10.csv')
 
 ##Give meaningful rownames of Site and Year
 rownames(psData6.10)<-paste(psData6.10$Site, psData6.10$Year-2000, sep=".")
@@ -284,6 +284,7 @@ qqPlot(residuals(p.parr.mod.s))
 ####Community Composition Analysis- Prey Species with Transect Data####
 
 ##Load data file: pData6.10
+pData6.10<-read.csv('psData6.10.csv')
 
 library(vegan)
 
