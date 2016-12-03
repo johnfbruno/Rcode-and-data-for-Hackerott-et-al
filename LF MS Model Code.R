@@ -1,5 +1,10 @@
 
-##Lionfish effects on prey ms model code 12/1/2016
+###############################################################################################
+# Invasive lionfish did not affect fish community structure across the Belizean Barrier Reef
+# Authors: Hackerott, S., A. Valdivia C. E. Cox, N. J. Silbiger6, and J. F. Bruno
+# Last edited: 12/2/2016
+# This code runs through the all the models in the main text of the maniscript
+##############################################################################################
 
 ####Main Analysis: Effect of lionfish on prey species at site level####
 
@@ -305,15 +310,15 @@ qqPlot(residuals(p.parr.mod.s))
 ####Community Composition Analysis- Prey Species with Transect Data####
 
 ##Load data file: pData6.10
-pData6.10<-read.csv('psData6.10.csv')
+pData6.10<-read.csv('pData6.10.csv')
 
 library(vegan)
 
 ##Permanova: testing the effect of year and lionfish abundance on community composition; stratafied by site
 
 ##Remove rows with zero fish
-#perm.pData<-pData6.10[-c(which(pData6.10$Tot.Abund==0)),]
-perm.pData<-pData6.10
+perm.pData<-pData6.10[-c(which(pData6.10$Tot.Abund==0)),]
+
 perm.prey<-adonis(perm.pData[, c(8:40)]~perm.pData$Year+perm.pData$LF.Abund.ha, 
                   strata=perm.pData$Site, permutations=10000)
 ##p-values- Year: 9.999e-5, Lionfish: 0.5378
